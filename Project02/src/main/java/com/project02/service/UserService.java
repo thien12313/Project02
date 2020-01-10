@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.project02.model.User;
 import com.project02.repository.UserRepository;
@@ -28,6 +29,8 @@ public class UserService {
 		return this.userRepository.save(user);
 	}
 	public User authenticate(String username, String password) {
+		System.out.println("Username:" + username);
+		System.out.println("Password:" + password);
 		return this.userRepository.findUserByUsernameAndPassword(username, password);
 	}
 }

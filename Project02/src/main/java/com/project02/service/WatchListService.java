@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.project02.model.User;
 import com.project02.model.WatchList;
 import com.project02.repository.WatchListRepository;
 
 @Service(value="watchListService")
+@CrossOrigin(origins = "http://localhost:4200")
 public class WatchListService {
 
 	@Autowired
