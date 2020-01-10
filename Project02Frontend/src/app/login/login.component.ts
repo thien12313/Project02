@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+
 import { SessionService } from '../session.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
   @Input() password: string;
   invalidLogin: boolean = false;
 
-  constructor(private sessionService: SessionService) {}
+  constructor(private sessionService: SessionService) { }
 
   submit() {
     this.sessionService.login(this.username, this.password);
