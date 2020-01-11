@@ -17,4 +17,5 @@ public interface WatchListRepository extends JpaRepository<WatchList, Integer>{
 	List<WatchList> findAllByMovienameAndMovieyear(String moviename, String movieyear);
 	public WatchList findByWatchlistid(int watchlistid);
 	public long count();
+	public WatchList findByUserAndMoviename(User user, String moviename);
 }

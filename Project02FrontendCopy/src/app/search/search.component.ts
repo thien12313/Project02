@@ -6,6 +6,7 @@ import { Movie } from '../movie';
 import { WatchlistService } from '../watchlist.service';
 import { Title } from '@angular/platform-browser';
 import { User } from '../user';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -14,31 +15,44 @@ import { User } from '../user';
 export class SearchComponent implements OnInit {
   postResult: Object;
 
-  constructor(private httpClient: HttpClient, private watchListService: WatchlistService) { }
+  constructor(private httpClient: HttpClient, private watchListService: WatchlistService,
+    private router: Router) { }
 
   watchlist: WatchList;
   movies: Movie;
   movie: Movie;
   user: User;
   searched: boolean = false;
+  signedin: boolean = false;
+  found: boolean = false;
   @Input() moviename: string;
   @Input() rating: number;
   @Input() review: string;
-  
+  @Input() rate: string;
+
   ngOnInit( ) {
   }
 
   find() {
+    this.found = false;
     this.searched = true;
+    this.user = JSON.parse(sessionStorage.getItem('user'));
+    if(this.user != null) {
+      this.signedin = true;
+    }
     this.httpClient.get('http://localhost:8080/watchlist/movies/' + this.moviename).subscribe( (data: any) => {
         if (data) {
           this.movies = data;
           sessionStorage.setItem('movie', JSON.stringify(this.movies));
+          if (this.movies.Title != undefined) {
+            this.found = true;
+          }
         }
     });
   }
 
   submit() {
+    let rating = +this.rate;
     this.user = JSON.parse(sessionStorage.getItem('user'));
     this.movie = JSON.parse(sessionStorage.getItem('movie'));
     const headers = {
@@ -46,7 +60,7 @@ export class SearchComponent implements OnInit {
         'Content-Type':  'application/x-www-form-urlencoded',
       })
     };
-    const body = `moviename=${this.movie.Title}&movieyear=${this.movie.Year}&rating=${this.rating}
+    const body = `moviename=${this.movie.Title}&movieyear=${this.movie.Year}&rating=${rating}
     &review=${this.review}&imageurl=${this.movie.Poster}&userid=${this.user.userid}
     &username=${this.user.username}&password=${this.user.password}&aboutme=${this.user.aboutme}
     &fullname=${this.user.fullname}`;
@@ -54,5 +68,6 @@ export class SearchComponent implements OnInit {
     this.httpClient.post('http://localhost:8080/watchlist/new', body, headers)
     .subscribe(msg => {this.postResult = msg; console.log(msg); }, err => { console.log(err); throw ''; });
     sessionStorage.removeItem('movie');
+    this.router.navigateByUrl('homepage');
   }
 }

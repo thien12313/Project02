@@ -63,7 +63,10 @@ public class WatchListController {
 			@RequestParam int userid, @RequestParam String username, @RequestParam String password, @RequestParam String fullname, @RequestParam String aboutme) {
 		User user = new User(userid, username, password, fullname, aboutme);
 		WatchList watchlist = new WatchList(100000, moviename, movieyear, review, rating, true, imageurl, user);
-		watchListService.saveMovie(watchlist);
+		WatchList validate = watchListService.validate(user, moviename);
+		if(validate == null) {
+			watchListService.saveMovie(watchlist);
+		}
 	}
 	
 	@GetMapping(value = "/random", produces = MediaType.APPLICATION_JSON_VALUE)

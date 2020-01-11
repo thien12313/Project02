@@ -11,6 +11,7 @@ import { SearchComponent } from './search/search.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AllreviewsComponent } from './allreviews/allreviews.component';
 import { AllusersComponent } from './allusers/allusers.component';
+import { NewuserComponent } from './newuser/newuser.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AllusersComponent } from './allusers/allusers.component';
     SearchComponent,
     NavbarComponent,
     AllreviewsComponent,
-    AllusersComponent
+    AllusersComponent,
+    NewuserComponent
   ],
   imports: [
     BrowserModule,

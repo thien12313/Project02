@@ -35,4 +35,7 @@ public class WatchListService {
 	public WatchList getOne(int watchlistid) {
 		return this.watchListRepository.findByWatchlistid(watchlistid);
 	}
+	public WatchList validate(User user, String moviename) {
+		return this.watchListRepository.findByUserAndMoviename(user, moviename);
+	}
 }

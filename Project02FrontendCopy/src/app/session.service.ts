@@ -33,6 +33,26 @@ export class SessionService {
     });
   }
 
+  create(username, password, fullname, aboutme) {
+    const headers = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/x-www-form-urlencoded',
+      })
+    };
+    const body = `username=${username}&password=${password}&fullname=${fullname}&aboutme=${aboutme}`;
+    console.log(body);
+    this.httpClient.post('http://localhost:8080/user/new', body, headers)
+    .subscribe( (user) => {
+      if (user != null) {
+        console.log(user);
+        sessionStorage.setItem('user', JSON.stringify(user));
+        this.router.navigateByUrl('homepage');
+      } else {
+        alert('This Username is not available');
+      }
+    });
+  }
+
   logout() {
     this.httpClient.get('http://localhost:8080/logout');
     this.router.navigateByUrl('login');

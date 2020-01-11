@@ -5,6 +5,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { SearchComponent } from './search/search.component';
 import { AllreviewsComponent } from './allreviews/allreviews.component';
 import { AllusersComponent } from './allusers/allusers.component';
+import { NewuserComponent } from './newuser/newuser.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'search', component: SearchComponent},
   {path: 'allreviews', component: AllreviewsComponent},
   {path: 'allusers', component: AllusersComponent},
+  {path: 'new', component: NewuserComponent},
   {path: 'unknown', redirectTo: '/homepage', pathMatch: 'full'}
 ];
 
