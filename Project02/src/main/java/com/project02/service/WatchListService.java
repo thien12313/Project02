@@ -29,4 +29,10 @@ public class WatchListService {
 	public void saveMovie(WatchList watchlist) {
 		this.watchListRepository.save(watchlist);
 	}
+	public long count() {
+		return this.watchListRepository.count();
+	}
+	public WatchList getOne(int watchlistid) {
+		return this.watchListRepository.findByWatchlistid(watchlistid);
+	}
 }

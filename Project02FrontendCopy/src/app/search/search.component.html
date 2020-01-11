@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<form name="search" (submit)="find()">
+  Search for a Movie: <br>
+  <input type="text" id="moviename" name="moviename" [(ngModel)]="moviename"><br>
+  <input type="submit" value="Search">
+</form>
+<div *ngIf="searched">
+  <img src="{{movies.Poster}}">
+  <form>
+    Title: <br>
+    <input type="text" name="title" id="title" value="{{movies.Title}}" readonly><br>
+    Year: <br>
+    <input type="text" name="year" id="year" value="{{movies.Year}}" readonly><br>
+    Rating: <br>
+    <input type="text" name="rating" id="rating" [(ngModel)]="rating"><br>
+    Review: <br>
+    <input type="text" name="review" id="review" [(ngModel)]="review"><br>
+    <input type="submit" (click)="submit()" value="Add Review">
+  </form>
+</div>

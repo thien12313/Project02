@@ -23,6 +23,7 @@ import com.project02.service.UserService;
 @CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 	
+	@Autowired
 	private static UserService userService;
 	private static Set<String> userNameSet = new HashSet<>();
 	

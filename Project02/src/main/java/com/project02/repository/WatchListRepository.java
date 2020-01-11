@@ -15,4 +15,6 @@ public interface WatchListRepository extends JpaRepository<WatchList, Integer>{
 	<W extends WatchList> W save(WatchList watchlist);
 	List<WatchList> findAllByUser(User user);
 	List<WatchList> findAllByMovienameAndMovieyear(String moviename, String movieyear);
+	public WatchList findByWatchlistid(int watchlistid);
+	public long count();
 }

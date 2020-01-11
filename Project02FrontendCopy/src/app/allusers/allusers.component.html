@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+<div class="show" *ngIf="show">
+<div class="user" *ngFor="let user of users">
+    Username: {{user.username}}<br>
+    Full Name: {{user.fullname}}<br>
+    About Me: {{user.aboutme}}<br>
+    <form>
+      <input type="submit" (click)="allreviews(user.userid)" value="See Reviews by this User">
+    </form>
+    <br>
+  </div>
+</div>
+<div id="watchlist" *ngIf="!show">
+  <input type="submit" (click)="back()" value="Go Back">
+  <div class="movies" *ngFor="let watchlist of watchlists">
+    Movie Name: {{watchlist.moviename}}<br>
+    Movie Year: {{watchlist.movieyear}}<br>
+    Rating: {{watchlist.rating}}<br>
+    Review: {{watchlist.review}}<br>
+    <img src="{{watchlist.imageurl}}"><br>
+    <br>
+  </div>
+</div>
