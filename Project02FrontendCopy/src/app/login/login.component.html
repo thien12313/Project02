@@ -4,5 +4,7 @@
     Password <br>
     <input type="password" id="password" name="password" [(ngModel)]="password"> <br>
     <input type="submit" value="Login">
+    <div *ngIf="invalidLogin" class="error">
+                <div>Invalid credentials.</div>
+    </div>
 </form>
-<a routerLink="/new">Create an Account</a>
