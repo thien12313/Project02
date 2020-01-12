@@ -77,7 +77,11 @@ public class WatchListController {
 		if(random == 0) {
 			random++;
 		}
-		return watchListService.getOne(random);
+		WatchList randommovie =  watchListService.getOne(random);
+		if(randommovie == null) {
+			randommovie = watchListService.getOne(1);
+		}
+		return randommovie;
 	}
 	
 	@RequestMapping(value="/movies/{moviename}", method = RequestMethod.GET)
