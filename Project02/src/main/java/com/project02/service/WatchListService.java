@@ -21,7 +21,7 @@ public class WatchListService {
 		return this.watchListRepository.findAllByOrderByMovienameAsc();
 	}
 	public List<WatchList> getAllWatchlistByUser(User user) {
-		return this.watchListRepository.findAllByUser(user);
+		return this.watchListRepository.findAllByUserOrderByMovienameAsc(user);
 	}
 	public List<WatchList> getAllWatchlistByMovienameAndMovieyear(String moviename, String movieyear) {
 		return this.watchListRepository.findAllByMovienameAndMovieyear(moviename, movieyear);
