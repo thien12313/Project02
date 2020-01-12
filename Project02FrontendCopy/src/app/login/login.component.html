@@ -1,10 +1,38 @@
-<form (submit)="submit()">
-   Username <br>
-    <input type="text" id="username" name="username" [(ngModel)]="username"> <br>
-    Password <br>
-    <input type="password" id="password" name="password" [(ngModel)]="password"> <br>
-    <input type="submit" value="Login">
-    <div *ngIf="invalidLogin" class="error">
-                <div>Invalid credentials.</div>
+<html class="myHtml">
+
+<body class="myBody">
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark myloginnav">
+            <a class="navbar-brand" href="#" style="margin: auto; font-size: 3em;"><i class="fas fa-ticket-alt mytitle"></i> MovieDex</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        </nav>
+    </header>
+
+    <div>
+        <div class="col-md-3 login-container">
+            <h2 style="margin: auto"><i class="fas fa-sign-in-alt"></i> Login </h2>
+            <form class="form-signin" (submit)="submit()">
+                <div class="form-group">
+                    <label for="username"><i class="fas fa-user"></i> Username:</label>
+                    <input type="text" style="font-family: FontAwesome" class="form-control" [(ngModel)]="username" placeholder=" &#xf007; Enter Your Username" id="username" name="username" autocomplete="off" required autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-key"></i> Password:</label>
+                    <input type="password" style="font-family: FontAwesome" class="form-control" [(ngModel)]="password" placeholder=" &#xf084; Enter Your Password" id="password" name="password" autocomplete="off" required>
+                </div>
+                <button class="btn btn-success" type="submit" value="Login"><i class="fas fa-sign-in-alt"></i> Login</button>
+                <a routerLink="/new" class="btn btn-outline-primary myFloat" role="button"><i class="fas fa-user-plus"></i> New Account</a>
+            </form>
+        </div>
     </div>
-</form>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2020 | MovieDex | Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+/* Sticky Navbar styles
+-------------------------------------------------- */
+
+.myHeader {
+    padding-top: 3em;
+}
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+.footer {
+    position: fixed;
+    height: 60px;
+    bottom: 0;
+    color: #fff;
+    padding-top: 20px;
+    width: 100%;
+    background: #00003E;
+    background: -webkit-linear-gradient(to right, #31BDE6, #00003E);
+    background: linear-gradient(to right, #31BDE6, #00003E);
+    text-align: center;
+    z-index: 1 !important;
+}

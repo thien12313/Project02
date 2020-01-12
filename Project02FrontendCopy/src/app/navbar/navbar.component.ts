@@ -23,9 +23,9 @@ export class NavbarComponent implements OnInit {
     this.user = JSON.parse(sessionStorage.getItem('user'));
     console.log(this.user);
     if (this.user == null) {
-      this.isloggedin = true;
-    } else {
       this.isloggedin = false;
+    } else {
+      this.isloggedin = true;
     }
   }
 

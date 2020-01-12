@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { WatchList } from '../watchlist';
-import { Console } from '@angular/core/src/console';
+// import { Console } from '@angular/core/src/console';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Movie } from '../movie';
 import { WatchlistService } from '../watchlist.service';
@@ -40,7 +40,7 @@ export class SearchComponent implements OnInit {
     if(this.user != null) {
       this.signedin = true;
     }
-    this.httpClient.get('http://localhost:8080/watchlist/movies/' + this.moviename).subscribe( (data: any) => {
+    this.httpClient.get('http://localhost:8088/watchlist/movies/' + this.moviename).subscribe( (data: any) => {
         if (data) {
           this.movies = data;
           sessionStorage.setItem('movie', JSON.stringify(this.movies));
@@ -65,7 +65,7 @@ export class SearchComponent implements OnInit {
     &username=${this.user.username}&password=${this.user.password}&aboutme=${this.user.aboutme}
     &fullname=${this.user.fullname}`;
     console.log(body);
-    this.httpClient.post('http://localhost:8080/watchlist/new', body, headers)
+    this.httpClient.post('http://localhost:8088/watchlist/new', body, headers)
     .subscribe(msg => {this.postResult = msg; console.log(msg); }, err => { console.log(err); throw ''; });
     sessionStorage.removeItem('movie');
     this.router.navigateByUrl('homepage');

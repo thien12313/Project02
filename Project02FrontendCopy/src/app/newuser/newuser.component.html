@@ -1,17 +1,73 @@
-<form (submit)="submit()">
-  Username:<br>
-  <input type="text" id="username" name="username" [(ngModel)]="username"><br>
-  Password:<br>
-  <input type="password" id="password" name="password" [(ngModel)]="password"><br>
-  Confirm Your Password:<br>
-  <input type="password" id="passwordagain" name="passwordagain" [(ngModel)]="passwordagain"><br>
-  <div *ngIf="passwordcheck" class="error">
-    <p>The Passwords do not match!</p>
-  </div>
-  Full Name:<br>
-  <input type="text" id="fullname" name="fullname" [(ngModel)]="fullname"><br>
-  About You:<br>
-  <input type="text" id="aboutme" name="about me" [(ngModel)]="aboutme"><br>
-  <input type="submit" value="Create Account">
+<html class="myHtml">
+
+<body class="myBody">
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark myloginnav">
+            <a class="navbar-brand" href="#" style="margin: auto; font-size: 3em;"><i class="fas fa-ticket-alt mytitle"></i> MovieDex</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        </nav>
+    </header>
+
+    <div>
+        <div class="col-md-3 login-container">
+            <h2 style="margin: auto"><i class="fas fa-user-plus"></i> Sign Up </h2>
+            <form class="form-signin" (submit)="submit()">
+                <div class="form-group">
+                    <label for="username"><i class="fas fa-user"></i> Username:</label>
+                    <input type="text" style="font-family: FontAwesome" class="form-control" [(ngModel)]="username" placeholder=" &#xf007; Enter Your Username" id="username" name="username" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-key"></i> Password:</label>
+                    <input type="password" style="font-family: FontAwesome" class="form-control" [(ngModel)]="password" placeholder=" &#xf084; Enter Your Password" id="password" name="password" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="passwordagain"><i class="fas fa-check-circle"></i> Confirm Your Password:</label>
+                    <input type="password" style="font-family: FontAwesome" class="form-control" [(ngModel)]="passwordagain" placeholder=" &#xf058; Confirm Your Password" id="passwordagain" name="passwordagain" autocomplete="off">
+                </div>
+                <div *ngIf="passwordcheck" class="error">
+                    <p>The Passwords do not match!</p>
+                </div>
+                <div class="form-group">
+                    <label for="fullname"><i class="fas fa-address-card"></i> Full Name:</label>
+                    <input type="text" style="font-family: FontAwesome" class="form-control" [(ngModel)]="fullname" placeholder=" &#xf2bb; Enter Your First and Last Name" id="fullname" name="fullname" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="aboutme"><i class="fas fa-child"></i> About You:</label>
+                    <input type="text" style="font-family: FontAwesome" class="form-control" [(ngModel)]="aboutme" placeholder=" &#xf1ae; Enter Something About Yourself" id="aboutme" name="aboutme" autocomplete="off">
+                </div>
+                <button class="btn btn-success" type="submit" value="Create Account"><i class="fas fa-user-plus"></i> Create Account</button>
+                <a routerLink="/login" class="btn btn-outline-primary myFloat" role="button"><i class="fas fa-sign-in-alt"></i> Back to Login</a>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2020 | MovieDex | Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+
+
+
+
+<!-- <form (submit)="submit()">
+    Username:<br>
+    <input type="text" id="username" name="username" [(ngModel)]="username"><br> Password:
+    <br>
+    <input type="password" id="password" name="password" [(ngModel)]="password"><br> Confirm Your Password:<br>
+    <input type="password" id="passwordagain" name="passwordagain" [(ngModel)]="passwordagain"><br>
+    <div *ngIf="passwordcheck" class="error">
+        <p>The Passwords do not match!</p>
+    </div>
+    Full Name:<br>
+    <input type="text" id="fullname" name="fullname" [(ngModel)]="fullname"><br> About You:<br>
+    <input type="text" id="aboutme" name="about me" [(ngModel)]="aboutme"><br>
+    <input type="submit" value="Create Account">
 </form>
-<a routerLink="/login">Back to Login</a>
+<a routerLink="/login">Back to Login</a> -->
