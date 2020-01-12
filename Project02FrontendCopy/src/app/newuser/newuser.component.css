@@ -1,0 +1,96 @@
+    /* GLOBAL STYLES
+-------------------------------------------------- */
+    
+    .myHtml {
+        height: 100%;
+        position: relative;
+        min-height: 100%;
+    }
+    
+    .myBody {
+        display: -ms-flexbox;
+        display: flexbox;
+        -ms-flex-align: center;
+        align-items: center;
+        background-color: #000;
+        padding-top: .1rem;
+        padding-bottom: 3rem;
+        color: #5a5a5a;
+        background-image: url("src/images/bg3.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 100%;
+        height: 100%;
+        position: relative;
+        min-height: 100%;
+    }
+    /* Login Navbar styles
+-------------------------------------------------- */
+    
+    .myloginnav {
+        background: #00003E;
+        background: -webkit-linear-gradient(to right, #00003E, #31BDE6);
+        background: linear-gradient(to right, #00003E, #31BDE6);
+    }
+    
+    .mytitle {
+        color: #31BDE6;
+    }
+    
+    .myFloat {
+        float: right;
+    }
+    /* Login styles
+-------------------------------------------------- */
+    
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        background: #00003E;
+        background: -webkit-linear-gradient(to right, #31BDE6, #00003E);
+        background: linear-gradient(to right, #31BDE6, #00003E);
+        margin: 6.7em auto auto;
+        border-radius: 10px;
+        color: #fff;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        opacity: 0.6;
+    }
+    
+    .login-container:hover {
+        opacity: 1;
+    }
+    /* Sticky footer styles
+-------------------------------------------------- */
+    
+    .footer {
+        position: fixed;
+        height: 60px;
+        bottom: 0;
+        color: #fff;
+        padding-top: 20px;
+        width: 100%;
+        background: #00003E;
+        background: -webkit-linear-gradient(to right, #31BDE6, #00003E);
+        background: linear-gradient(to right, #31BDE6, #00003E);
+        text-align: center;
+    }
+    
+    .form-signin {
+        width: 100%;
+        max-width: 330px;
+        margin: auto;
+    }
+    
+    .form-signin .form-control {
+        position: relative;
+        box-sizing: border-box;
+        height: auto;
+        padding: 10px;
+        font-size: 16px;
+    }
+    
+    .form-signin .form-control:focus {
+        z-index: 2;
+    }

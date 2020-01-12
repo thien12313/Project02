@@ -1,9 +1,36 @@
-<app-navbar></app-navbar>
-<div class="movies" *ngFor="let watchlist of watchlists">
-  Movie Name: {{watchlist.moviename}}<br>
-  Movie Year: {{watchlist.movieyear}}<br>
-  Review: {{watchlist.review}}<br>
-  Rating: {{watchlist.rating}}<br>
-  Username: {{watchlist.user.username}}<br>
-  <img src="{{watchlist.imageurl}}">
-</div>
+<html class="myHtml">
+
+<body class="myBody">
+
+    <app-navbar></app-navbar>
+    <section class="content myHeader">
+
+        <hr class="break" />
+        <h1 style="color: white;">The Reviews Are In</h1>
+        <hr class="break" />
+
+        <div class="card mb-8" style="max-width: 840px;" *ngFor="let watchlist of watchlists">
+            <div class=" row no-gutters ">
+                <div class="col-md-4 ">
+                    <img src="{{watchlist.imageurl}} " class="card-img ">
+                </div>
+                <div class="col-md-8 ">
+                    <div class="card-body looper meta">
+                        <h2>Title: {{watchlist.moviename}}</h2>
+                        <hr class="break" />
+                        <h4>Released: {{watchlist.movieyear}}</h4>
+                        <hr class="break" />
+                        <h4>Rating: {{watchlist.rating}}/5</h4>
+                        <hr class="break" />
+                        <h4>Review: {{watchlist.review}}</h4>
+                        <hr class="break" />
+                        <h4>Reviewed By: {{watchlist.user.username}}</h4>
+                        <hr class="break" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

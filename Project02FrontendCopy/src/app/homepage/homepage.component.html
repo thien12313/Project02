@@ -1,10 +1,28 @@
-<app-navbar></app-navbar>
-<div>
-	<h2>Featured Review</h2>
-	Movie Name: {{watchlist.moviename}} <br>
-	Movie Year: {{watchlist.movieyear}} <br>
-	Rating: {{watchlist.rating}}/5 <br>
-	Review: {{watchlist.review}} <br>
-	User: {{watchlist.user.username}} <br>
-	<img src="{{watchlist.imageurl}}">
-</div>
+<html class="myHtml">
+
+<body class="myBody">
+
+    <app-navbar></app-navbar>
+
+
+    <div class="card mb-6 content" style="max-width: 840px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{watchlist.imageurl}}" class="card-img">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body looper meta">
+                    <h2>Featured Review</h2>
+                    <hr class="break" /> Title: {{watchlist.moviename}}
+                    <hr class="break" /> Released: {{watchlist.movieyear}}
+                    <hr class="break" /> Rating: {{watchlist.rating}}/5
+                    <hr class="break" /> Review: {{watchlist.review}}
+                    <hr class="break" /> Reviewed By: {{watchlist.user.username}}
+                    <hr class="break" />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

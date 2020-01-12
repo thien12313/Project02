@@ -13,14 +13,14 @@ export class WatchlistService {
   constructor(private httpClient: HttpClient, private router: Router) { }
 
   allmovies(): Observable<WatchList[]> {
-    return this.httpClient.get('http://localhost:8080/watchlist/all') as Observable<WatchList[]>;
+    return this.httpClient.get('http://localhost:8088/watchlist/all') as Observable<WatchList[]>;
   }
 
   randommovie(): Observable<WatchList> {
-    return this.httpClient.get('http://localhost:8080/watchlist/random/') as Observable<WatchList>;
+    return this.httpClient.get('http://localhost:8088/watchlist/random/') as Observable<WatchList>;
   }
 
   allmoviesfromoneuser(userid: any): Observable<WatchList[]> {
-    return this.httpClient.get('http://localhost:8080/watchlist/userall/' + userid) as Observable<WatchList[]>;
+    return this.httpClient.get('http://localhost:8088/watchlist/userall/' + userid) as Observable<WatchList[]>;
   }
 }

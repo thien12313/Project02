@@ -1,41 +1,59 @@
-<app-navbar></app-navbar>
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-<form name="search" (submit)="find()">
-  Search for a Movie: <br>
-  <input type="text" id="moviename" name="moviename" [(ngModel)]="moviename"><br>
-  <input type="submit" value="Search">
-</form>
-<div *ngIf="searched">
-  <img src="{{movies.Poster}}">
-  <form *ngIf="signedin" ngNativeValidate>
-    <div *ngIf="found">
-        Title: <br>
-        <input type="text" name="title" id="title" value="{{movies.Title}}" readonly><br>
-        Year: <br>
-        <input type="text" name="year" id="year" value="{{movies.Year}}" readonly><br>
-        Rating: <br>
-        <div class="stars">
-        <input class="star star-5" id="star-5" type="radio" name="star" [(ngModel)]="rate" value="5"/>
-        <label class="star star-5" for="star-5"></label>
-        <input class="star star-4" id="star-4" type="radio" name="star" [(ngModel)]="rate" value="4"/>
-        <label class="star star-4" for="star-4"></label>
-        <input class="star star-3" id="star-3" type="radio" name="star" [(ngModel)]="rate" value="3"/>
-        <label class="star star-3" for="star-3"></label>
-        <input class="star star-2" id="star-2" type="radio" name="star" [(ngModel)]="rate" value="2"/>
-        <label class="star star-2" for="star-2"></label>
-        <input class="star star-1" id="star-1" type="radio" name="star" [(ngModel)]="rate" value="1"/>
-        <label class="star star-1" for="star-1"></label>
-        </div>
-        <br>
-        Review: <br>
-        <input type="text" name="review" id="review" [(ngModel)]="review" required><br>
-        <input type="submit" (click)="submit()" value="Add Review">
-      </div>
-      <div *ngIf="!found" class="error">
-        <p>This movie does not exist!</p>
-      </div>
-    </form>
-    <div *ngIf="!signedin" class="error">
-    <p>Please Sign In to add a Review</p>
+<html class="myHtml">
+
+<body class="myBody">
+    <app-navbar></app-navbar>
+    <div class="search open">
+        <form class="form-inline" name="search" (submit)="find()">
+            <i class="fas fa-search" style="font-size: 3em;"></i><input title="search" type="search" id="moviename" name="moviename" class="search-box" [(ngModel)]="moviename" autofocus placeholder="Search MovieDex">
+            <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+        </form>
     </div>
-</div>
+    <section class="content" *ngIf="searched">
+        <main class="card mb-8 row no-gutters">
+            <div class="col-md-4">
+                <img src="{{movies.Poster}}" class="card-img">
+            </div>
+            <div class="col-md-16">
+                <div>
+                    <form *ngIf="signedin" ngNativeValidate>
+                        <div *ngIf="found" class="looper">
+                            <ul class="meta">
+                                <hr class="break" />
+                                <li>Title: {{movies.Title}}</li>
+                                <hr class="break" />
+                                <li>Released: {{movies.Year}}</li>
+                                <hr class="break" />
+                                <li>Rating:
+                                    <div class="stars">
+                                        <input class="star star-5" id="star-5" type="radio" name="star" [(ngModel)]="rate" value="5" />
+                                        <label class="star star-5" for="star-5"></label>
+                                        <input class="star star-4" id="star-4" type="radio" name="star" [(ngModel)]="rate" value="4" />
+                                        <label class="star star-4" for="star-4"></label>
+                                        <input class="star star-3" id="star-3" type="radio" name="star" [(ngModel)]="rate" value="3" />
+                                        <label class="star star-3" for="star-3"></label>
+                                        <input class="star star-2" id="star-2" type="radio" name="star" [(ngModel)]="rate" value="2" />
+                                        <label class="star star-2" for="star-2"></label>
+                                        <input class="star star-1" id="star-1" type="radio" name="star" [(ngModel)]="rate" value="1" />
+                                        <label class="star star-1" for="star-1"></label>
+                                    </div>
+                                </li>
+                                <hr class="break" />
+                                <li>Review: <input type="text" name="review" id="review" [(ngModel)]="review" required>
+                                    <input class="btn-outline-primary" type="submit" (click)="submit()" value="Add Review"></li>
+                                <hr class="break" />
+                            </ul>
+                        </div>
+                        <div *ngIf="!found" class="error">
+                            <p>This movie does not exist!</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div *ngIf="!signedin" class="error">
+                <p>Please Sign In to add a Review</p>
+            </div>
+        </main>
+    </section>
+</body>
+
+</html>

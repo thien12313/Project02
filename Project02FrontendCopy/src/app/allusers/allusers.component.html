@@ -1,23 +1,70 @@
-<app-navbar></app-navbar>
-<div class="show" *ngIf="show">
-<div class="user" *ngFor="let user of users">
-    Username: {{user.username}}<br>
-    Full Name: {{user.fullname}}<br>
-    About Me: {{user.aboutme}}<br>
-    <form>
-      <input type="submit" (click)="allreviews(user.userid)" value="See Reviews by this User">
-    </form>
-    <br>
-  </div>
-</div>
-<div id="watchlist" *ngIf="!show">
-  <input type="submit" (click)="back()" value="Go Back">
-  <div class="movies" *ngFor="let watchlist of watchlists">
-    Movie Name: {{watchlist.moviename}}<br>
-    Movie Year: {{watchlist.movieyear}}<br>
-    Rating: {{watchlist.rating}}<br>
-    Review: {{watchlist.review}}<br>
-    <img src="{{watchlist.imageurl}}"><br>
-    <br>
-  </div>
-</div>
+<html class="myHtml">
+
+<body class="myBody">
+
+    <app-navbar></app-navbar>
+    <section class="content myHeader">
+
+        <hr class="break2" />
+        <h1 style="color: white;">View Fans</h1>
+        <hr class="break2" />
+
+        <div class="show" *ngIf="show">
+            <div class="card mb-8" *ngFor="let user of users">
+
+                <div class="card-body border">
+                    <h2> Username: {{user.username}}</h2>
+                    <hr class="break" />
+                    <h4>Full Name: {{user.fullname}}</h4>
+                    <hr class="break" />
+                    <h4>About Me: {{user.aboutme}}</h4>
+                    <hr class="break" />
+                    <form>
+                        <input class="btn btn-outline-primary" type="submit" (click)="allreviews(user.userid)" value="See Reviews by this Fan">
+                    </form>
+                    <hr class="break" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div id="watchlist" *ngIf="!show">
+            <div class="card mb-8" style="max-width: 840px;" *ngFor="let watchlist of watchlists">
+                <div class="row no-gutters">
+                    <div class="col-md-4 ">
+                        <img src="{{watchlist.imageurl}} " class="card-img ">
+                    </div>
+                    <div class="col-md-8 row">
+                        <div class="card-body">
+                            <h2>Title: {{watchlist.moviename}}</h2>
+                            <hr class="break" />
+                            <h4>Released: {{watchlist.movieyear}}</h4>
+                            <hr class="break" />
+                            <h4>Rating: {{watchlist.rating}}/5</h4>
+                            <hr class="break" />
+                            <h4>Review: {{watchlist.review}}</h4>
+                            <hr class="break" />
+                            <input class="btn btn-outline-success" type="submit" (click)="back()" value="Go Back">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+</body>
+
+</html>

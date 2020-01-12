@@ -21,7 +21,7 @@ export class SessionService {
     };
     const body = `username=${username}&password=${password}`;
     console.log(body);
-    this.httpClient.post('http://localhost:8080/login', body, headers)
+    this.httpClient.post('http://localhost:8088/login', body, headers)
     .subscribe( (user) => {
       if (user != null) {
         console.log(user);
@@ -41,7 +41,7 @@ export class SessionService {
     };
     const body = `username=${username}&password=${password}&fullname=${fullname}&aboutme=${aboutme}`;
     console.log(body);
-    this.httpClient.post('http://localhost:8080/user/new', body, headers)
+    this.httpClient.post('http://localhost:8088/user/new', body, headers)
     .subscribe( (user) => {
       if (user != null) {
         console.log(user);
@@ -54,7 +54,7 @@ export class SessionService {
   }
 
   logout() {
-    this.httpClient.get('http://localhost:8080/logout');
+    this.httpClient.get('http://localhost:8088/logout');
     this.router.navigateByUrl('login');
   }
 }
