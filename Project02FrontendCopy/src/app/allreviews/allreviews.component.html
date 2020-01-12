@@ -1,0 +1,9 @@
+<app-navbar></app-navbar>
+<div class="movies" *ngFor="let watchlist of watchlists">
+  Movie Name: {{watchlist.moviename}}<br>
+  Movie Year: {{watchlist.movieyear}}<br>
+  Review: {{watchlist.review}}<br>
+  Rating: {{watchlist.rating}}<br>
+  Username: {{watchlist.user.username}}<br>
+  <img src="{{watchlist.imageurl}}">
+</div>

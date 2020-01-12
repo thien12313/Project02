@@ -23,6 +23,7 @@ import com.project02.service.UserService;
 @CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 	
+	@Autowired
 	private static UserService userService;
 	private static Set<String> userNameSet = new HashSet<>();
 	
@@ -69,12 +70,7 @@ public class UserController {
 			//return "User Name is already taken; please choose a different User Name.";
 			return null;
 		}
-		User user = new User();
-		user.setUsername(username);
-		user.setPassword(password);
-		user.setFullname(fullname);
-		user.setAboutme(aboutme);
-		
+		User user = new User(4000000, username, password, fullname, aboutme);
 		return userService.createUser(user);
 	}
 }

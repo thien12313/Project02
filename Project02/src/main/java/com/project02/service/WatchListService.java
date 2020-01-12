@@ -18,7 +18,7 @@ public class WatchListService {
 	WatchListRepository watchListRepository;
 	
 	public List<WatchList> getAllWatchlists() {
-		return this.watchListRepository.findAll();
+		return this.watchListRepository.findAllByOrderByMovienameAsc();
 	}
 	public List<WatchList> getAllWatchlistByUser(User user) {
 		return this.watchListRepository.findAllByUser(user);
@@ -28,5 +28,14 @@ public class WatchListService {
 	}
 	public void saveMovie(WatchList watchlist) {
 		this.watchListRepository.save(watchlist);
+	}
+	public long count() {
+		return this.watchListRepository.count();
+	}
+	public WatchList getOne(int watchlistid) {
+		return this.watchListRepository.findByWatchlistid(watchlistid);
+	}
+	public WatchList validate(User user, String moviename) {
+		return this.watchListRepository.findByUserAndMoviename(user, moviename);
 	}
 }

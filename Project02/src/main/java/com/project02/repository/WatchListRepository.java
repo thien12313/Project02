@@ -11,8 +11,11 @@ import com.project02.model.WatchList;
 @CrossOrigin(origins = "http://localhost:4200")
 public interface WatchListRepository extends JpaRepository<WatchList, Integer>{
 
-	public List<WatchList> findAll();	
+	public List<WatchList> findAllByOrderByMovienameAsc();	
 	<W extends WatchList> W save(WatchList watchlist);
 	List<WatchList> findAllByUser(User user);
 	List<WatchList> findAllByMovienameAndMovieyear(String moviename, String movieyear);
+	public WatchList findByWatchlistid(int watchlistid);
+	public long count();
+	public WatchList findByUserAndMoviename(User user, String moviename);
 }

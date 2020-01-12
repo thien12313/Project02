@@ -1,0 +1,17 @@
+<form (submit)="submit()">
+  Username:<br>
+  <input type="text" id="username" name="username" [(ngModel)]="username"><br>
+  Password:<br>
+  <input type="password" id="password" name="password" [(ngModel)]="password"><br>
+  Confirm Your Password:<br>
+  <input type="password" id="passwordagain" name="passwordagain" [(ngModel)]="passwordagain"><br>
+  <div *ngIf="passwordcheck" class="error">
+    <p>The Passwords do not match!</p>
+  </div>
+  Full Name:<br>
+  <input type="text" id="fullname" name="fullname" [(ngModel)]="fullname"><br>
+  About You:<br>
+  <input type="text" id="aboutme" name="about me" [(ngModel)]="aboutme"><br>
+  <input type="submit" value="Create Account">
+</form>
+<a routerLink="/login">Back to Login</a>
