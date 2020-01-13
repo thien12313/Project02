@@ -25,7 +25,7 @@ import com.project02.service.WatchListService;
 
 @RestController(value = "watchlistController")
 @RequestMapping(value = "/watchlist")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin()
 public class WatchListController {
 
 	@Autowired
