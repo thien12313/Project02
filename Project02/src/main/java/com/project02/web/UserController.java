@@ -20,7 +20,7 @@ import com.project02.service.UserService;
 
 @RestController(value="userController")
 @RequestMapping(value="/user")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOriginorigins = "http://localhost:4200")
 public class UserController {
 	
 	@Autowired
