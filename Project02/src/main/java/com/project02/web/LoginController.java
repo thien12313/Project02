@@ -21,7 +21,7 @@ import com.project02.model.User;
 import com.project02.service.UserService;
 
 @RestController(value = "LoginController")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin()
 public class LoginController {
 
 	@Autowired
